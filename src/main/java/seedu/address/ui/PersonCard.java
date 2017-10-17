@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.logic.Logic;
 import seedu.address.model.person.ReadOnlyPerson;
 
 /**
@@ -24,6 +25,8 @@ public class PersonCard extends UiPart<Region> {
      */
 
     public final ReadOnlyPerson person;
+  //  private final Logic logic;
+    private int selectedIndex;
 
     @FXML
     private HBox cardPane;
