@@ -45,6 +45,7 @@ public class MainWindow extends UiPart<Region> {
     private Config config;
     private UserPrefs prefs;
     private DeleteButton deleteButton;
+    private ListButton listButton;
 
     @FXML
     private StackPane browserPlaceholder;
@@ -66,6 +67,9 @@ public class MainWindow extends UiPart<Region> {
 
     @FXML
     private StackPane deleteButtonPlaceholder;
+
+    @FXML
+    private StackPane listButtonPlaceholder;
 
     public MainWindow(Stage primaryStage, Config config, UserPrefs prefs, Logic logic) {
         super(FXML);
@@ -133,6 +137,9 @@ public class MainWindow extends UiPart<Region> {
 
         deleteButton = new DeleteButton(logic, 0);
         deleteButtonPlaceholder.getChildren().add(deleteButton.getRoot());
+
+        listButton = new ListButton(logic, 0);
+        listButtonPlaceholder.getChildren().add(listButton.getRoot());
 
         browserPanel = new BrowserPanel();
         browserPlaceholder.getChildren().add(browserPanel.getRoot());

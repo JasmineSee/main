@@ -43,6 +43,7 @@
       </padding>
       <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
          <StackPane fx:id="deleteButtonPlaceholder" prefHeight="48.0" prefWidth="322.0" />
+         <StackPane fx:id="listButtonPlaceholder" prefHeight="48.0" prefWidth="322.0" />
     </VBox>
 
     <StackPane fx:id="browserPlaceholder" prefWidth="340">
