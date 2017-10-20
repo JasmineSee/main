@@ -23,6 +23,7 @@ import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.TagCommand;
 import seedu.address.logic.commands.UndoCommand;
+import seedu.address.logic.commands.UploadImageCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -113,6 +114,10 @@ public class AddressBookParser {
         case ImportCommand.COMMAND_WORD:
         case ImportCommand.COMMAND_ALIAS:
             return new ImportCommandParser().parse(arguments);
+
+        case UploadImageCommand.COMMAND_WORD:
+        case UploadImageCommand.COMMAND_ALIAS:
+            return new UploadImageCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
