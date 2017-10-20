@@ -17,9 +17,9 @@ import seedu.address.model.person.ReadOnlyPerson;
 /**
  * Uploads image file to specified person.
  */
-public class UploadImageCommand extends UndoableCommand {
-    public static final String COMMAND_WORD = "image";
-    public static final String COMMAND_ALIAS = "ui";
+public class UploadPhotoCommand extends UndoableCommand {
+    public static final String COMMAND_WORD = "photo";
+    public static final String COMMAND_ALIAS = "p";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Uploads image to the person identified by the index number used in the last person listing.\n"
@@ -33,7 +33,7 @@ public class UploadImageCommand extends UndoableCommand {
     private Desktop desktop = Desktop.getDesktop();
     private Stage stage;
 
-    public UploadImageCommand(Index targetIndex) {
+    public UploadPhotoCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
 
     }
@@ -54,8 +54,8 @@ public class UploadImageCommand extends UndoableCommand {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof UploadImageCommand // instanceof handles nulls
-                && this.targetIndex.equals(((UploadImageCommand) other).targetIndex)); // state check
+                || (other instanceof UploadPhotoCommand // instanceof handles nulls
+                && this.targetIndex.equals(((UploadPhotoCommand) other).targetIndex)); // state check
     }
 
     public void handleFileChooser() {
@@ -71,7 +71,7 @@ public class UploadImageCommand extends UndoableCommand {
 
         } catch (IOException ex) {
             Logger.getLogger(
-                    UploadImageCommand.class.getName()).log(
+                    UploadPhotoCommand.class.getName()).log(
                     Level.SEVERE, null, ex
             );
         }
