@@ -284,7 +284,6 @@ File must also be placed in the main folder.
 
 Format: `import FILENAME.vcf` or `im FILENAME.vcf` where `FILENAME` is the name of the file that you wish to import.
 
-
 === Clearing all entries : `clear`
 
 Clears all entries from the address book. +
@@ -297,6 +296,19 @@ Format: `exit`
 
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
+
+=== Changing colour theme
+
+Changes colour theme of the address book. There are 3 colours available: +
+
+.  Black Theme (Default)
+.  White Theme
+.  Green Theme +
+
+To change the colour theme:
+
+.   Click on File
+.   Select the respective colour theme (e.g. for white theme, click on the "White Theme" option).
 
 == Upcoming Features
 
