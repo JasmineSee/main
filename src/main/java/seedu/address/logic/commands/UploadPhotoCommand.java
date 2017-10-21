@@ -2,11 +2,16 @@ package seedu.address.logic.commands;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.imageio.ImageIO;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Messages;
@@ -32,6 +37,7 @@ public class UploadPhotoCommand extends UndoableCommand {
     private final FileChooser fileChooser = new FileChooser();
     private Desktop desktop = Desktop.getDesktop();
     private Stage stage;
+    ImageView imageView = new ImageView();
 
     public UploadPhotoCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -59,9 +65,24 @@ public class UploadPhotoCommand extends UndoableCommand {
     }
 
     public void handleFileChooser() {
+
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Save Image");
+//
+//        File file = fileChooser.showSaveDialog(stage);
+//        if (file != null) {
+//            try {
+//                ImageIO.write(SwingFXUtils.fromFXImage(imageView.getImage(),
+//                        null), "png", file);
+//            } catch (IOException ex) {
+//                Logger.getLogger(
+//                        UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
         File file = fileChooser.showOpenDialog(stage);
         if (file != null) {
             openFile(file);
+            System.out.println(file.getAbsolutePath());
         }
     }
 
@@ -74,6 +95,18 @@ public class UploadPhotoCommand extends UndoableCommand {
                     UploadPhotoCommand.class.getName()).log(
                     Level.SEVERE, null, ex
             );
+        }
+    }
+
+    private void saveFile(int content, File file) {
+        try {
+            FileWriter fileWriter = null;
+
+            fileWriter = new FileWriter(file);
+            fileWriter.write(content);
+            fileWriter.close();
+        } catch (IOException ex) {
+            Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

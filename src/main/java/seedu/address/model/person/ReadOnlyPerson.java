@@ -22,8 +22,8 @@ public interface ReadOnlyPerson {
     Address getAddress();
     ObjectProperty<UniqueTagList> tagProperty();
     Set<Tag> getTags();
-    ObjectProperty<Image> imageProperty();
-    Image getImage();
+    ObjectProperty<Photo> photoProperty();
+    Photo getPhoto();
 
     /**
      * Returns true if both have the same state. (interfaces cannot override .equals)
@@ -35,7 +35,7 @@ public interface ReadOnlyPerson {
                 && other.getPhone().equals(this.getPhone())
                 && other.getEmail().equals(this.getEmail())
                 && other.getAddress().equals(this.getAddress()))
-                && other.getImage().equals(this.getImage());
+                && other.getPhoto().equals(this.getPhoto());
     }
 
     /**

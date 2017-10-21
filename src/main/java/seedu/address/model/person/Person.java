@@ -24,12 +24,12 @@ public class Person implements ReadOnlyPerson {
     private ObjectProperty<Address> address;
 
     private ObjectProperty<UniqueTagList> tags;
-    private ObjectProperty<Image> image;
+    private ObjectProperty<Photo> photo;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Image image) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Photo photo) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = new SimpleObjectProperty<>(name);
         this.phone = new SimpleObjectProperty<>(phone);
@@ -37,7 +37,7 @@ public class Person implements ReadOnlyPerson {
         this.address = new SimpleObjectProperty<>(address);
         // protect internal tags from changes in the arg list
         this.tags = new SimpleObjectProperty<>(new UniqueTagList(tags));
-        this.image = new SimpleObjectProperty<>(image);
+        this.photo = new SimpleObjectProperty<>(photo);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Person implements ReadOnlyPerson {
      */
     public Person(ReadOnlyPerson source) {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(),
-                source.getTags(), source.getImage());
+                source.getTags(), source.getPhoto());
     }
 
     public void setName(Name name) {
@@ -125,13 +125,13 @@ public class Person implements ReadOnlyPerson {
     }
 
     @Override
-    public ObjectProperty<Image> imageProperty() {
-        return image;
+    public ObjectProperty<Photo> photoProperty() {
+        return photo;
     }
 
     @Override
-    public Image getImage() {
-        return image.get();
+    public Photo getPhoto() {
+        return photo.get();
     }
 
     @Override
