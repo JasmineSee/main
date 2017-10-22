@@ -50,6 +50,8 @@ public interface ReadOnlyPerson {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Photo: ")
+                .append(getPhoto())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

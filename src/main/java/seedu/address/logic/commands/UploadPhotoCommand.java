@@ -1,6 +1,10 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.commands.EditCommand.MESSAGE_DUPLICATE_PERSON;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,6 +22,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
 
 /**
  * Uploads image file to specified person.
@@ -50,11 +56,24 @@ public class UploadPhotoCommand extends UndoableCommand {
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+
+        File imageFile = handleFileChooser();
+        imageFile = saveFile(imageFile);
+
         ReadOnlyPerson personToUploadImage = lastShownList.get(targetIndex.getZeroBased());
+        ReadOnlyPerson editedPerson = lastShownList.get(targetIndex.getZeroBased());
+        editedPerson.getPhoto().setPath(imageFile.getPath());
 
-        handleFileChooser();
+        try {
+            model.updatePerson(personToUploadImage, editedPerson);
+        } catch (DuplicatePersonException dpe) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        } catch (PersonNotFoundException pnfe) {
+            throw new AssertionError("The target person cannot be missing");
+        }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_UPLOAD_IMAGE_SUCCESS, personToUploadImage));
+        return new CommandResult(String.format(MESSAGE_UPLOAD_IMAGE_SUCCESS, editedPerson));
     }
 
     @Override
@@ -64,7 +83,7 @@ public class UploadPhotoCommand extends UndoableCommand {
                 && this.targetIndex.equals(((UploadPhotoCommand) other).targetIndex)); // state check
     }
 
-    public void handleFileChooser() {
+    public File handleFileChooser() {
 
 //        FileChooser fileChooser = new FileChooser();
 //        fileChooser.setTitle("Save Image");
@@ -81,9 +100,10 @@ public class UploadPhotoCommand extends UndoableCommand {
 //        }
         File file = fileChooser.showOpenDialog(stage);
         if (file != null) {
-            openFile(file);
-            System.out.println(file.getAbsolutePath());
+            //  openFile(file);
+            System.out.println(file.getName());
         }
+        return file;
     }
 
     public void openFile(File file) {
@@ -98,15 +118,35 @@ public class UploadPhotoCommand extends UndoableCommand {
         }
     }
 
-    private void saveFile(int content, File file) {
-        try {
-            FileWriter fileWriter = null;
+    private File saveFile(File file) {
 
-            fileWriter = new FileWriter(file);
-            fileWriter.write(content);
-            fileWriter.close();
-        } catch (IOException ex) {
-            Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, ex);
+         File path = new File("photos/" +file.getName());
+
+        //if(!path.exists()) {
+
+        try {
+            path.mkdirs();
+            path.createNewFile();
+            System.out.println(path.getPath());
+            //  BufferedImage image = new BufferedImage(100, 100, 1);
+            BufferedImage image;
+            image = ImageIO.read(file);
+            ImageIO.write(image, "png", path);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, e);
         }
+        return path;
+        //}
+//        try {
+//            FileWriter fileWriter = null;
+//
+//            fileWriter = new FileWriter(file);
+//            fileWriter.write(content);
+//            fileWriter.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }
