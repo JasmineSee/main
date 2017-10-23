@@ -26,5 +26,5 @@ public class UploadPhotoCommandParser implements Parser<UploadPhotoCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, UploadPhotoCommand.MESSAGE_USAGE));
         }
     }
-
 }
+

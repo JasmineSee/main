@@ -19,25 +19,12 @@ public class Photo {
 
     public String filePath;
 
-    /**
-     * Validates given image file path.
-     *
-     * @throws IllegalValueException if given image file is invalid.
-     */
-    public Photo(String filePath) throws IllegalValueException {
-
-        //String filepath = "/the/file/path/image.jpg";
-//        File f = new File(filePath);
-//        String mimetype = new MimetypesFileTypeMap().getContentType(f);
-//        String type = mimetype.split("/")[0];
-//        if (!type.equals("image")) {
-//            throw new IllegalValueException(MESSAGE_IMAGE_CONSTRAINTS);
-//        }
+    public Photo(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * Returns true if a given string is a valid person name.
+     * Returns true if a given string is a valid person photo.
      */
     public static boolean isValidPhoto(String test) {
         File f = new File(test);

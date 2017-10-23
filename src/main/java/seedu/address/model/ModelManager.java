@@ -14,7 +14,9 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Photo;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -105,6 +107,16 @@ public class ModelManager extends ComponentManager implements Model {
             indicateAddressBookChanged();
         }
     }
+
+//    @Override
+//    public void removeOldPhoto(ReadOnlyPerson oldPerson) throws DuplicatePersonException, PersonNotFoundException{
+//        Person newPerson = new Person(oldPerson);
+//        Photo photo = new Photo("");
+//        newPerson.setPhoto(photo);
+//        addressBook.updatePerson(oldPerson, newPerson);
+//        indicateAddressBookChanged();
+//    }
+
 
     //=========== Filtered Person List Accessors =============================================================
 

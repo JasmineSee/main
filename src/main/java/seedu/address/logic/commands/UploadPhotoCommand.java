@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.EditCommand.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.person.Photo.MESSAGE_IMAGE_CONSTRAINTS;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,7 +21,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Parser;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Photo;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -38,6 +43,7 @@ public class UploadPhotoCommand extends UndoableCommand {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_UPLOAD_IMAGE_SUCCESS = "Uploaded image to Person: %1$s";
+    public static final String MESSAGE_IMAGE_PATH_FAILURE = "The image path cannot be read. Please try again.";
 
     private final Index targetIndex;
     private final FileChooser fileChooser = new FileChooser();
@@ -56,9 +62,26 @@ public class UploadPhotoCommand extends UndoableCommand {
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+        File imageFile;
+        Photo targetPhoto = lastShownList.get(targetIndex.getZeroBased()).getPhoto();
 
-        File imageFile = handleFileChooser();
-        imageFile = saveFile(imageFile);
+            imageFile = handleFileChooser();
+            targetPhoto.setPath("");
+            //           ReadOnlyPerson personToUploadImage = lastShownList.get(targetIndex.getZeroBased());
+//            try {
+//                if (!personToUploadImage.getPhoto().equals("")) {
+//                    model.removeOldPhoto(personToUploadImage);
+//                }
+//            } catch (DuplicatePersonException e) {
+//                throw new CommandException(AddCommand.MESSAGE_DUPLICATE_PERSON);
+//            } catch (PersonNotFoundException pnfe) {
+//                assert false : "The target person cannot be missing";
+//            }
+        //    removeOldPhoto(new File("photos/"+imageFile.getName()));
+            imageFile = saveFile(imageFile,targetPhoto);
+//        } catch (IOException ex) {
+//            return new CommandResult(String.format(MESSAGE_IMAGE_PATH_FAILURE));
+//        }
 
         ReadOnlyPerson personToUploadImage = lastShownList.get(targetIndex.getZeroBased());
         ReadOnlyPerson editedPerson = lastShownList.get(targetIndex.getZeroBased());
@@ -101,12 +124,20 @@ public class UploadPhotoCommand extends UndoableCommand {
         File file = fileChooser.showOpenDialog(stage);
         if (file != null) {
             //  openFile(file);
-            System.out.println(file.getName());
+            // System.out.println(file.getName());
         }
         return file;
     }
 
-    public void openFile(File file) {
+//    public void removeOldPhoto(File file) {
+//
+//        if (file.exists()) {
+//            System.out.println(file.getPath());
+//            file.delete();
+//        }
+//    }
+
+    public void openFile(File file) throws IOException {
         try {
             desktop.open(file);
 
@@ -118,22 +149,21 @@ public class UploadPhotoCommand extends UndoableCommand {
         }
     }
 
-    private File saveFile(File file) {
+    private File saveFile(File file, Photo photo) {
 
-         File path = new File("photos/" +file.getName());
-
-        //if(!path.exists()) {
+        File path = new File("photos/" + file.getName());
 
         try {
             path.mkdirs();
             path.createNewFile();
-            System.out.println(path.getPath());
+       //     System.out.println(path.getPath());
             //  BufferedImage image = new BufferedImage(100, 100, 1);
             BufferedImage image;
             image = ImageIO.read(file);
             ImageIO.write(image, "png", path);
 
         } catch (IOException e) {
+            photo.setPath("");
             e.printStackTrace();
             Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, e);
         }

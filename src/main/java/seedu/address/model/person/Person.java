@@ -124,6 +124,10 @@ public class Person implements ReadOnlyPerson {
         tags.set(new UniqueTagList(replacement));
     }
 
+    public void setPhoto(Photo photo) {
+        this.photo.set(requireNonNull(photo));
+    }
+
     @Override
     public ObjectProperty<Photo> photoProperty() {
         return photo;

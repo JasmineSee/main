@@ -49,7 +49,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL)).get();
             Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)).get();
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-            Photo photo = ParserUtil.parseImage(argMultimap.getValue(PREFIX_PHOTO)).get();
+            Photo photo = ParserUtil.parsePhoto(argMultimap.getValue(PREFIX_PHOTO)).get();
 
             ReadOnlyPerson person = new Person(name, phone, email, address, tagList, photo);
 

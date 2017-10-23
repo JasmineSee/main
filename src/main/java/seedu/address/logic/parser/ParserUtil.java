@@ -93,10 +93,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code Optional<String> image} into an {@code Optional<image>} if {@code image} is present.
+     * Parses a {@code Optional<String> photo} into an {@code Optional<photo>} if {@code photo} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
-    public static Optional<Photo> parseImage(Optional<String> photo) throws IllegalValueException {
+    public static Optional<Photo> parsePhoto(Optional<String> photo) throws IllegalValueException {
         requireNonNull(photo);
         return photo.isPresent() ? Optional.of(new Photo(photo.get())) : Optional.empty();
     }
