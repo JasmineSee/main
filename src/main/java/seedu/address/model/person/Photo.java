@@ -20,6 +20,7 @@ public class Photo {
     public String filePath;
 
     public Photo(String filePath) {
+     //   requireNonNull(filePath);
         this.filePath = filePath;
     }
 

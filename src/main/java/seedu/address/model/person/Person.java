@@ -29,7 +29,7 @@ public class Person implements ReadOnlyPerson {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Photo photo) {
+    public Person(Name name, Phone phone, Email email, Address address, Photo photo, Set<Tag> tags ) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = new SimpleObjectProperty<>(name);
         this.phone = new SimpleObjectProperty<>(phone);
@@ -44,8 +44,8 @@ public class Person implements ReadOnlyPerson {
      * Creates a copy of the given ReadOnlyPerson.
      */
     public Person(ReadOnlyPerson source) {
-        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(),
-                source.getTags(), source.getPhoto());
+        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(),source.getPhoto(),
+                source.getTags());
     }
 
     public void setName(Name name) {

@@ -53,11 +53,11 @@ public class XmlAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+        photo = source.getPhoto().filePath;
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
             tagged.add(new XmlAdaptedTag(tag));
         }
-        photo = source.getPhoto().filePath;
     }
 
     /**
@@ -74,8 +74,8 @@ public class XmlAdaptedPerson {
         final Phone phone = new Phone(this.phone);
         final Email email = new Email(this.email);
         final Address address = new Address(this.address);
-        final Set<Tag> tags = new HashSet<>(personTags);
         final Photo photo = new Photo(this.photo);
-        return new Person(name, phone, email, address, tags, photo);
+        final Set<Tag> tags = new HashSet<>(personTags);
+        return new Person(name, phone, email, address, photo, tags);
     }
 }

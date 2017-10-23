@@ -51,7 +51,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
             Photo photo = ParserUtil.parsePhoto(argMultimap.getValue(PREFIX_PHOTO)).get();
 
-            ReadOnlyPerson person = new Person(name, phone, email, address, tagList, photo);
+            ReadOnlyPerson person = new Person(name, phone, email, address, photo, tagList);
 
             return new AddCommand(person);
         } catch (IllegalValueException ive) {

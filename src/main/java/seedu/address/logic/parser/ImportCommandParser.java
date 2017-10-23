@@ -74,7 +74,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
                         Email e = new Email(email);
                         Address a = new Address(address);
                         Photo i = new Photo(image);
-                        ReadOnlyPerson person = new Person(n, pe, e, a, tagList, i);
+                        ReadOnlyPerson person = new Person(n, pe, e, a,  i, tagList);
                         p.add(person);
 
                     } catch (IllegalValueException ie) {
