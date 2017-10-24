@@ -34,12 +34,13 @@ public class AddCommandIntegrationTest {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.addPerson(validPerson);
 
+
         assertCommandSuccess(prepareCommand(validPerson, model), model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validPerson), expectedModel);
     }
 
     @Test
-    public void execute_duplicatePerson_throwsCommandException() throws Exception{
+    public void execute_duplicatePerson_throwsCommandException() {
         Person personInList = new Person(model.getAddressBook().getPersonList().get(0));
         assertCommandFailure(prepareCommand(personInList, model), model, AddCommand.MESSAGE_DUPLICATE_PERSON);
     }

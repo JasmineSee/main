@@ -104,7 +104,7 @@ public class EditCommand extends UndoableCommand {
         Photo updatedPhoto = editPersonDescriptor.getPhoto().orElse(personToEdit.getPhoto());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedPhoto ,updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedPhoto, updatedTags);
     }
 
     @Override

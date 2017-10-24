@@ -7,7 +7,6 @@ import java.io.File;
 import javax.activation.MimetypesFileTypeMap;
 
 import javafx.scene.image.Image;
-import seedu.address.commons.exceptions.IllegalValueException;
 
 /**
  * Represents a Person's photo in the address book.
@@ -19,11 +18,11 @@ public class Photo {
             "Not a valid image file";
 
     //    public String filePath="/photos/default.jpeg";
-    public String filePath;
+    private String filePath;
 
     public Photo(String filePath) {
         if (filePath == null) {
-            filePath = "photos/default.jpeg";
+            filePath = "";
         }
         requireNonNull(filePath);
         this.filePath = filePath;
