@@ -18,11 +18,11 @@ public class Photo {
     public static final String MESSAGE_IMAGE_CONSTRAINTS =
             "Not a valid image file";
 
-    public String filePath;
+    public String filePath="/photos/default.jpeg";
 
     public Photo(String filePath) {
         if (filePath == null) {
-            filePath = "";
+            filePath = "/photos/default.jpeg";
         }
         requireNonNull(filePath);
         this.filePath = filePath;
@@ -53,7 +53,7 @@ public class Photo {
     }
 
     public Image getImage() {
-        if(filePath.equals("")){
+        if (filePath.equals("")) {
             filePath = "/photos/default.jpeg";
         }
         File file = new File(filePath);
