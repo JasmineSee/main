@@ -32,8 +32,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        descriptor.setTags(person.getTags());
         descriptor.setPhoto(person.getPhoto());
+        descriptor.setTags(person.getTags());
     }
 
     /**
@@ -105,8 +105,9 @@ public class EditPersonDescriptorBuilder {
         try {
             ParserUtil.parsePhoto(Optional.of(photo)).ifPresent(descriptor::setPhoto);
         } catch (IllegalValueException ive) {
-            throw new IllegalArgumentException("photo are expected to be unique.");
+            throw new IllegalArgumentException("photo is expected to be unique.");
         }
+
         return this;
     }
 

@@ -6,6 +6,7 @@ import java.io.File;
 
 import javax.activation.MimetypesFileTypeMap;
 
+import javafx.scene.image.Image;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 /**
@@ -20,7 +21,10 @@ public class Photo {
     public String filePath;
 
     public Photo(String filePath) {
-     //   requireNonNull(filePath);
+        if (filePath == null) {
+            filePath = "";
+        }
+        requireNonNull(filePath);
         this.filePath = filePath;
     }
 
@@ -46,6 +50,15 @@ public class Photo {
 
     public String getPath() {
         return filePath;
+    }
+
+    public Image getImage() {
+        if(filePath.equals("")){
+            filePath = "/photos/default.jpeg";
+        }
+        File file = new File(filePath);
+        Image image = new Image(file.toURI().toString());
+        return image;
     }
 
     @Override

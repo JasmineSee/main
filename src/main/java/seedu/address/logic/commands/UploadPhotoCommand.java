@@ -62,11 +62,14 @@ public class UploadPhotoCommand extends UndoableCommand {
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+        for(ReadOnlyPerson Person: lastShownList){
+            System.out.println(Person.getAsText());
+        }
         File imageFile;
         Photo targetPhoto = lastShownList.get(targetIndex.getZeroBased()).getPhoto();
 
             imageFile = handleFileChooser();
-            targetPhoto.setPath("");
+         //   targetPhoto.setPath("");
             //           ReadOnlyPerson personToUploadImage = lastShownList.get(targetIndex.getZeroBased());
 //            try {
 //                if (!personToUploadImage.getPhoto().equals("")) {
