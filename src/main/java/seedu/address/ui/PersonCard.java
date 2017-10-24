@@ -64,6 +64,9 @@ public class PersonCard extends UiPart<Region> {
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
         email.textProperty().bind(Bindings.convert(person.emailProperty()));
         File file = new File(person.getPhoto().getPath());
+        if (person.getPhoto().getPath().equals("")) {
+            file = new File("photos/default.jpeg");
+        }
         Image image = new Image(file.toURI().toString(), 150, 150, false, false);
         photo.setImage(image);
         person.tagProperty().addListener((observable, oldValue, newValue) -> {
