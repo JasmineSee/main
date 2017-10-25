@@ -1,0 +1,178 @@
+List		2017-10-25T17:16:43.394
+
+Add	Hoon Meier Phone: 8482424 Email: stefan@example.com Address: little india Tags: [friends]	2017-10-25T17:16:44.614
+
+Add	Alice Pauline Phone: 85355255 Email: alice@gmail.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:05.052
+
+Add	Alice Pauline Phone: 85355255 Email: alice@gmail.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:06.669
+
+Clear		2017-10-25T17:17:08.327
+
+Clear		2017-10-25T17:17:08.357
+
+Delete	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:10.078
+
+Delete	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:10.102
+
+Before Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.889
+
+After Edit	Alice Pauline Phone: 85355255 Email: alice@gmail.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.895
+
+Before Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.927
+
+After Edit	Bob Choo Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.932
+
+Before Edit	George Best Phone: 9482442 Email: anna@example.com Address: 4th street Tags: [friends]	2017-10-25T17:17:11.964
+
+After Edit	Bob Choo Phone: 22222222 Email: anna@example.com Address: 4th street Tags: [husband]	2017-10-25T17:17:11.968
+
+Before Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.979
+
+After Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:11.983
+
+List		2017-10-25T17:17:21.775
+
+List		2017-10-25T17:17:21.787
+
+Delete	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:23.545
+
+Redo		2017-10-25T17:17:23.553
+
+Delete	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:17:23.561
+
+Redo		2017-10-25T17:17:23.566
+
+Remove Tag	[nothing]	2017-10-25T17:17:25.438
+
+Remove Tag	[colleagues]	2017-10-25T17:17:25.459
+
+Remove Tag	[criminal]	2017-10-25T17:17:25.475
+
+Delete	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:17:34.342
+
+Delete	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:17:34.354
+
+Undo		2017-10-25T17:17:34.381
+
+Undo		2017-10-25T17:17:34.391
+
+List		2017-10-25T17:17:37.481
+
+List		2017-10-25T17:18:23.655
+
+List		2017-10-25T17:18:24.769
+
+List		2017-10-25T17:18:26.035
+
+List		2017-10-25T17:18:26.350
+
+List		2017-10-25T17:18:28.174
+
+List		2017-10-25T17:18:29.055
+
+List		2017-10-25T17:18:29.667
+
+Add	Amy Bee Phone: 11111111 Email: amy@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:18:54.599
+
+Undo		2017-10-25T17:18:55.379
+
+Add	Amy Bee Phone: 11111111 Email: amy@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:18:55.986
+
+Redo		2017-10-25T17:18:55.998
+
+Add	Bob Choo Phone: 11111111 Email: amy@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:18:57.730
+
+Add	Amy Bee Phone: 22222222 Email: amy@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:18:58.344
+
+Add	Amy Bee Phone: 11111111 Email: bob@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:18:59.108
+
+Add	Amy Bee Phone: 11111111 Email: amy@example.com Address: Block 123, Bobby Street 3 Tags: [friend]	2017-10-25T17:18:59.921
+
+Add	Ida Mueller Phone: 8482131 Email: hans@example.com Address: chicago ave Tags: [friends]	2017-10-25T17:19:01.209
+
+Clear		2017-10-25T17:19:02.297
+
+Add	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:19:02.627
+
+Add	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend][husband]	2017-10-25T17:19:03.010
+
+Add	Carl Kurz Phone: 95352563 Email: heinz@example.com Address: wall street Tags: [colleagues]	2017-10-25T17:19:07.435
+
+Add	Hoon Meier Phone: 8482424 Email: stefan@example.com Address: little india Tags: [friends]	2017-10-25T17:19:07.973
+
+Clear		2017-10-25T17:19:18.128
+
+Undo		2017-10-25T17:19:18.698
+
+Clear		2017-10-25T17:19:19.389
+
+Redo		2017-10-25T17:19:19.394
+
+Undo		2017-10-25T17:19:19.807
+
+Delete	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:19:36.321
+
+Delete	George Best Phone: 9482442 Email: anna@example.com Address: 4th street Tags: [friends]	2017-10-25T17:19:36.935
+
+Undo		2017-10-25T17:19:37.640
+
+Delete	George Best Phone: 9482442 Email: anna@example.com Address: 4th street Tags: [friends]	2017-10-25T17:19:38.213
+
+Redo		2017-10-25T17:19:38.218
+
+Delete	Carl Kurz Phone: 95352563 Email: heinz@example.com Address: wall street Tags: [colleagues]	2017-10-25T17:19:38.743
+
+Delete	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:19:39.638
+
+List		2017-10-25T17:19:40.705
+
+Before Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:19:57.613
+
+After Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [husband]	2017-10-25T17:19:57.618
+
+Undo		2017-10-25T17:19:58.403
+
+Before Edit	Alice Pauline Phone: 85355255 Email: alice@example.com Address: 123, Jurong West Ave 6, #08-111 Tags: [friends]	2017-10-25T17:19:59.029
+
+After Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [husband]	2017-10-25T17:19:59.034
+
+Redo		2017-10-25T17:19:59.040
+
+Before Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [husband]	2017-10-25T17:19:59.629
+
+After Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend][husband]	2017-10-25T17:19:59.635
+
+Before Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend][husband]	2017-10-25T17:20:00.220
+
+After Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend]	2017-10-25T17:20:00.225
+
+Before Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend]	2017-10-25T17:20:00.800
+
+After Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: 	2017-10-25T17:20:00.806
+
+Before Edit	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:20:01.784
+
+After Edit	Bob Choo Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:20:01.789
+
+List		2017-10-25T17:20:03.193
+
+Before Edit	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: 	2017-10-25T17:20:07.379
+
+After Edit	Amy Bee Phone: 11111111 Email: amy@example.com Address: Block 312, Amy Street 1 Tags: [friend]	2017-10-25T17:20:07.384
+
+Add	Bob Choo Phone: 22222222 Email: bob@example.com Address: Block 123, Bobby Street 3 Tags: [friend][husband]	2017-10-25T17:20:16.573
+
+Delete	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:20:27.247
+
+List		2017-10-25T17:20:30.619
+
+Clear		2017-10-25T17:20:35.481
+
+Clear		2017-10-25T17:20:58.241
+
+Delete	Benson Meier Phone: 98765432 Email: johnd@example.com Address: 311, Clementi Ave 2, #02-25 Tags: [owesMoney][friends]	2017-10-25T17:21:05.953
+
+List		2017-10-25T17:21:11.459
+
+Clear		2017-10-25T17:21:16.892
+
