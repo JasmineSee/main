@@ -19,8 +19,9 @@ public class UploadPhotoCommandParser implements Parser<UploadPhotoCommand> {
      */
     public UploadPhotoCommand parse(String args) throws ParseException {
         try {
+            String filePath = args.substring(1);
             Index index = ParserUtil.parseIndex(args);
-            return new UploadPhotoCommand(index);
+            return new UploadPhotoCommand(index, filePath);
         } catch (IllegalValueException ive) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, UploadPhotoCommand.MESSAGE_USAGE));

@@ -106,7 +106,6 @@ public class ModelManager extends ComponentManager implements Model {
         }
     }
 
-
     //=========== Filtered Person List Accessors =============================================================
 
     /**

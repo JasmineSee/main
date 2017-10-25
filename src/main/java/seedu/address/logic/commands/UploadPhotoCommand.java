@@ -6,6 +6,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.person.Email;
 import seedu.address.model.person.Photo;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
@@ -37,13 +39,15 @@ public class UploadPhotoCommand extends UndoableCommand {
 
     public static final String MESSAGE_UPLOAD_IMAGE_SUCCESS = "Uploaded image to Person: %1$s";
     private final Index targetIndex;
+    private final String filePath;
     private final FileChooser fileChooser = new FileChooser();
     private Stage stage;
     private ImageView imageView = new ImageView();
+    private HashMap<Email,String> photoList;
 
-    public UploadPhotoCommand(Index targetIndex) {
+    public UploadPhotoCommand(Index targetIndex, String filePath) {
         this.targetIndex = targetIndex;
-
+        this.filePath = filePath;
     }
 
     @Override
@@ -54,25 +58,26 @@ public class UploadPhotoCommand extends UndoableCommand {
         }
 
         File imageFile;
-        Photo targetPhoto = lastShownList.get(targetIndex.getZeroBased()).getPhoto();
+      //  Photo targetPhoto = lastShownList.get(targetIndex.getZeroBased()).getPhoto();
 
         imageFile = handleFileChooser();
-        imageFile = saveFile(imageFile, targetPhoto);
+        imageFile = saveFile(imageFile);
 
         ReadOnlyPerson personToUploadImage = lastShownList.get(targetIndex.getZeroBased());
-        ReadOnlyPerson editedPerson = lastShownList.get(targetIndex.getZeroBased());
-        editedPerson.getPhoto().setPath(imageFile.getPath());
+       // ReadOnlyPerson editedPerson = lastShownList.get(targetIndex.getZeroBased());
+       // editedPerson.getPhoto().setPath(imageFile.getPath());
+        photoList.put(personToUploadImage.getEmail(),imageFile.getPath());
 
-        try {
-            model.updatePerson(personToUploadImage, editedPerson);
-        } catch (DuplicatePersonException dpe) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        } catch (PersonNotFoundException pnfe) {
-            throw new AssertionError("The target person cannot be missing");
-        }
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+//        try {
+//            model.updatePerson(personToUploadImage, editedPerson);
+//        } catch (DuplicatePersonException dpe) {
+//            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+//        } catch (PersonNotFoundException pnfe) {
+//            throw new AssertionError("The target person cannot be missing");
+//        }
+//        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_UPLOAD_IMAGE_SUCCESS, editedPerson));
+        return new CommandResult(String.format(MESSAGE_UPLOAD_IMAGE_SUCCESS, personToUploadImage));
     }
 
     @Override
@@ -92,7 +97,7 @@ public class UploadPhotoCommand extends UndoableCommand {
     /**
      * Reads and saves image file into project directory folder "photos".
      */
-    private File saveFile(File file, Photo photo) {
+    private File saveFile(File file) {
 
         File path = new File("photos/" + file.getName());
 
@@ -106,7 +111,6 @@ public class UploadPhotoCommand extends UndoableCommand {
             ImageIO.write(image, "png", path);
 
         } catch (IOException e) {
-            photo.setPath("");
             e.printStackTrace();
             Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, e);
         }
