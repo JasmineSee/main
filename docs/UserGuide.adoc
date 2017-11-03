@@ -28,7 +28,7 @@ This tutorial gives an overview on the basic functions of ConnectUs such as addi
 and displaying their location on Google Maps. Being a very simple application, no prior technical knowledge is required to use this application.
 
 Below lists the command terminology which would be used throughout this guide:
-====
+
 *Command Format*
 
 
@@ -53,7 +53,7 @@ Below lists the command terminology which would be used throughout this guide:
 * Items in square brackets are optional e.g `n/NAME [t/TAG]` ,tag is optional and can be used as `n/John Doe t/friend` or as `n/John Doe`.
 * Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-====
+
 
 == Installation - Getting Started
 
@@ -71,24 +71,25 @@ This app will not work with earlier versions of Java 8.
 image::Ui.jpeg[width="790"]
 _Figure 3.1 : UI_
 +
-|=======================================================================
-Here are some terms of the components in the GUI for you to refer to before you proceed to the next step (you may refer to the labels in Figure 3.1): +
+....
+Here are some terms of the components in the GUI for you to refer to before you proceed to the next step (you may refer to the labels in Figure 3.1):
 
-1. File menu: allows you to change colour themes and exit the application +
-2. Help menu: clicking on the Help menu will pop out a help window +
-3. Command box: allows you to type your commands +
-4. Result display: shows the outcome or messages of your command +
-5. Person list panel: includes photo display and details display for each contact +
-      * Photo display: shows the photo of your contact (default image is displayed if photo is not uploaded to the contact yet) +
-      * Details display: shows all the details of your contact +
-6. Form display: allows you to input the details of your contact that you clicked for editing (form will auto-fill existing details of the contact in the textfields when you click on a contact) +
-7. Delete button: allows you to delete the contact that you chose +
-8. Email button: allows you to email the contact that you chose +
-9. Save button: saves the edited information of the contact in the form to the chosen contact +
-10. Browser panel: shows the logo image and changes to the map view of the contact's location upon clicking on a contact +
-11. Clear log button: allows you to clear the log +
-12. Generate QR button: allows you to generate QR code of the contact's phone number (the QR code will be displayed in the browser panel) +
-|=======================================================================
+1. File menu: allows you to change colour themes and exit the application
+2. Help menu: clicking on the Help menu will pop out a help window
+3. Command box: allows you to type your commands
+4. Result display: shows the outcome or messages of your command
+5. Person list panel: includes photo display and details display for each contact
+   -Photo display: shows the photo of your contact
+   (default image is displayed if photo is not uploaded to the contact yet)
+   -Details display: shows all the details of your contact
+6. Form display: allows you to input the details of your contact that you clicked for editing (form will auto-fill existing details of the contact in the text-fields when you click on a contact)
+7. Delete button: allows you to delete the contact that you chose
+8. Email button: allows you to email the contact that you chose
+9. Save button: saves the edited information of the contact in the form to the chosen contact
+10. Browser panel: shows the logo image and changes to the map view of the contact's location upon clicking on a contact
+11. Clear log button: allows you to clear the log
+12. Generate QR button: allows you to generate QR code of the contact's phone number (the QR code will be displayed in the browser panel)
+....
 
 .  Type the command in the command box (labelled 3 in Figure 3.1)  and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
@@ -503,38 +504,13 @@ This section answers some common questions that you may have. If you have any mo
 |*Sort* | `sort` | `sort`
 |*Tag* | `tag KEYWORD [MORE_KEYWORDS]` | `tag friends classmates`
 |*Remove Tag* | `rtag KEYWORD [MORE_KEYWORDS]` |`rtag friends classmates`
-|*Import* | `import FILENAME.vcf` |
-|*Export* | `export` |
+|*Import* | `import FILENAME.vcf` | `import contacts.vcf`
+|*Export* | `export` | `export`
 |*Upload Photo* | `photo INDEX` OR `photo INDEX FILEPATH` |`photo 3` OR `photo 3 C:\Users\Pictures\photo.jpg`
 
 |=======================================================================
 
 == Command Shortcuts Summary
-
-* *Add* `a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `a n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-* *Clear* : `c`
-* *Delete* : `d INDEX` +
-e.g. `d 3`
-* *Edit* : `e INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-e.g. `e 2 n/James Lee e/jameslee@example.com`
-* *Find* : `f KEYWORD [MORE_KEYWORDS]` +
-e.g. `f James Jake`
-* *List* : `l`
-* *Select* : `s INDEX` +
-e.g.`select 2`
-* *History* : `h`
-* *Undo* : `u`
-* *Redo* : `r`
-* *Sort* : `ss`
-* *Tag*  : `t`
-* *Remove Tag*  : `rt`
-* *Import* : `im FILENAME.vcf`
-* *Export* : `ex`
-* *Upload Photo* : `p INDEX` +
-e.g. `p 3` OR +
-`photo INDEX FILEPATH` +
-e.g. `photo 3 C:\Users\Pictures\photo.jpg`
 
 [width="59%",cols="22%,<40%,<40%,options="header",]
 |=======================================================================
@@ -553,8 +529,7 @@ e.g. `photo 3 C:\Users\Pictures\photo.jpg`
 |*Sort* | `ss` | `ss`
 |*Tag* | `t KEYWORD [MORE_KEYWORDS]` | `t friends classmates`
 |*Remove Tag* | `rt KEYWORD [MORE_KEYWORDS]` |`rt friends classmates`
-|*Import* | `im FILENAME.vcf` |
-|*Export* | `exp` |
+|*Import* | `im FILENAME.vcf` | `im contacts.vcf`
+|*Export* | `exp` | `exp`
 |*Upload Photo* | `p INDEX` OR `p INDEX FILEPATH` |`p 3` OR `p 3 C:\Users\Pictures\photo.jpg`
-
 |=======================================================================
