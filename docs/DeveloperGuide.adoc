@@ -625,6 +625,7 @@ that has the tags similar to the keywords. +
 **Alternative 2:** Only keywords(case-sensitive) that are exactly equal to the tag names will match +
 **Pros:** Results in an accurate filtered list  +
 **Cons:** Requires user to type the exact tag name which makes it inconvenient. As convenience is more important, Alternative 1 is chosen. +
+
 // end::filtertag[]
 
 // tag::removetag[]
