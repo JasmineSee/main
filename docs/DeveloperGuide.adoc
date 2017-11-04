@@ -602,7 +602,6 @@ Once the required information (name, email, address, phone number) is retrieved 
 // end::ImportCommand[]
 
 // tag::filtertag[]
-
 === Filter by tag mechanism
 (added in v1.2)
 
@@ -626,6 +625,7 @@ that has the tags similar to the keywords. +
 **Alternative 2:** Only keywords(case-sensitive) that are exactly equal to the tag names will match +
 **Pros:** Results in an accurate filtered list  +
 **Cons:** Requires user to type the exact tag name which makes it inconvenient. As convenience is more important, Alternative 1 is chosen. +
+// end::filtertag[]
 
 // tag::removetag[]
 === Remove tag mechanism
@@ -672,6 +672,10 @@ _Figure 4.8.1: Remove Tag Sequence Diagram_
 **Pros:** Less overhead as can compare between keyword strings and tag name strings +
 **Cons:** Further implementation and checks required to check that the keyword is identical to the tag name +
 
+// end::removetag[]
+
+// tag::colourtheme[]
+
 === Change colour theme mechanism
 (added in v1.2)
 
@@ -693,6 +697,9 @@ _Figure 4.9.1 : White Theme_
 image::greenThemeUI.png[width="800"]
 _Figure 4.9.2 : Green Theme_
 
+// end::colourtheme[]
+
+// tag::uploadphoto[]
 === Upload photo mechanism
 (added in v1.4)
 
@@ -726,6 +733,7 @@ If the file given is not a valid image file, a 'CommandException' will be thrown
 **Pros:** Reliable as the photo path is always stored for each `Person`. +
 **Cons:** Requires a lot of modification to codes that will requires `Person` , as well as changing tests to reflect the additional attribute.
 
+// end::uploadphoto[]
 == Documentation
 
 We use asciidoc for writing documentation.
