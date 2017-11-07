@@ -116,11 +116,12 @@ public class UploadPhotoCommand extends Command {
             BufferedImage image;
             image = ImageIO.read(file);
             ImageIO.write(image, "png", path);
-
         } catch (IOException e) {
             e.printStackTrace();
             Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, e);
         }
+
+
     }
 
 }

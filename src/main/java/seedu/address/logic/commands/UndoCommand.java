@@ -2,6 +2,14 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.imageio.ImageIO;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.UndoRedoStack;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -26,6 +34,7 @@ public class UndoCommand extends Command {
         }
 
         undoRedoStack.popUndo().undo();
+       // restorePhotos();
         LoggingCommand loggingCommand = new LoggingCommand();
         loggingCommand.keepLog("", "Undo");
         return new CommandResult(MESSAGE_SUCCESS);
@@ -36,4 +45,57 @@ public class UndoCommand extends Command {
         this.model = model;
         this.undoRedoStack = undoRedoStack;
     }
+
+    //@@author JasmineSee
+
+    /**
+     * Restores all photos of persons in the address book.
+     */
+    public void restorePhotos() {
+        File backupDir = new File("photosBackup/");
+        File dir = new File("photos/");
+        for (File backupFile : backupDir.listFiles()) {
+            if (!(isPhotoExist(backupFile.getName()))) {
+                System.out.println("photo does not exist in current directory");
+                savePhoto(backupFile);
+            }
+        }
+    }
+    //@@author
+
+    //@@author JasmineSee
+
+    /**
+     * Checks against current photos directory and returns true if photo in backup is in current photos directory
+     */
+    public boolean isPhotoExist(String backupFileName) {
+        File dir = new File("photos/");
+        for (File currentFile : dir.listFiles()) {
+            if (backupFileName.equals(currentFile.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //@@author
+
+    //@@author JasmineSee
+
+    /**
+     * Saves backup photo to current photo directory
+     */
+    public void savePhoto(File backupFile) {
+        try {
+            File path = new File("photos/" + backupFile.getName());
+            path.mkdirs();
+            path.createNewFile();
+            BufferedImage image;
+            image = ImageIO.read(backupFile);
+            ImageIO.write(image, "png", path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Logger.getLogger(UploadPhotoCommand.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    //@@author
 }
